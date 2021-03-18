@@ -26,6 +26,7 @@ file(GLOB FC_SOURCES
 )
 set(PLUGINS_DIR "${CMAKE_SOURCE_DIR}/../FrameCapturer/Assets/UTJ/FrameCapturer/Plugins/x86_64")
 add_plugin(fccore SOURCES ${FC_SOURCES} ${FCISPC_OUTPUTS} PLUGINS_DIR ${PLUGINS_DIR})
+add_library(fccorelib SHARED ${FC_SOURCES} ${FCISPC_OUTPUTS})
 
 target_include_directories(
     fccore
