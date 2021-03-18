@@ -34,3 +34,7 @@ FrameCapturer/*.csproj
 FrameCapturer/*.sln
 FrameRecorder/
 FrameRecorder.meta
+
+Dependencies/ilmbase-build/
+Dependencies/install/
+build/
