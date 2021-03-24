@@ -4,3 +4,6 @@
 [submodule "Dependencies/libwebm"]
 	path = Dependencies/libwebm
 	url = https://chromium.googlesource.com/webm/libwebm
+[submodule "Dependencies/libvpx"]
+	path = Dependencies/libvpx
+	url = git@github.com:webmproject/libvpx.git

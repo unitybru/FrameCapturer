@@ -35,6 +35,6 @@ FrameCapturer/*.sln
 FrameRecorder/
 FrameRecorder.meta
 
-Dependencies/ilmbase-build/
+Dependencies/*-build/
 Dependencies/install/
 build/
