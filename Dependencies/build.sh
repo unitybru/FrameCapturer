@@ -16,11 +16,11 @@ mkdir -p ${installdir}
 echo "------------------------------------"
 echo "Build openexr 2.5.5"
 echo "------------------------------------"
-if [[ -e ilmbase-build ]]; then
-    rm -rf ilmbase-build
+if [[ -e openexr-build ]]; then
+    rm -rf openexr-build
 fi
-mkdir -p ilmbase-build
-pushd ilmbase-build
+mkdir -p openexr-build
+pushd openexr-build
 cmake ../openexr/IlmBase -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_INSTALL_PREFIX="${installdir}" \
     -DCMAKE_PREFIX_PATH="${installdir}" \

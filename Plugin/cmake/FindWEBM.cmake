@@ -1,8 +1,8 @@
 set(CMAKE_PREFIX_PATH
 	# path for include files
-    /Users/bruno/DEV/FrameCapturer/Dependencies/libwebm
+    ../Dependencies/libwebm
     # path for compiled library
-    /Users/bruno/DEV/FrameCapturer/Dependencies/libwebm-build
+    ../Dependencies/libwebm-build
 )
 
 find_path(WEBM_INCLUDE_DIR
