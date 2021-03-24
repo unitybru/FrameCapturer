@@ -1,7 +1,8 @@
 set(LIBRARY_PATHS
-    /usr/lib
-    /usr/local/lib
-    ${VPX_DIR}/lib
+    # path for include files
+    ../Dependencies/libvpx
+    # path for compiled library
+    ../Dependencies/libvpx-build
 )
 
 find_path(VPX_INCLUDE_DIR
@@ -12,6 +13,7 @@ find_path(VPX_INCLUDE_DIR
 find_library(VPX_LIBRARY
     NAMES vpx
     PATHS ${LIBRARY_PATHS}
+    NO_CMAKE_SYSTEM_PATH
 )
 
 mark_as_advanced(VPX_INCLUDE_DIR)
