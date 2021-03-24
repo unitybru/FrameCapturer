@@ -1,12 +1,12 @@
 set(CMAKE_PREFIX_PATH
-    /usr/lib
-    /usr/local/lib
-    ${WEBM_DIR}/lib
+	# path for include files
+    /Users/bruno/DEV/FrameCapturer/Dependencies/libwebm
+    # path for compiled library
+    /Users/bruno/DEV/FrameCapturer/Dependencies/libwebm-build
 )
 
 find_path(WEBM_INCLUDE_DIR
     mkvparser.hpp
-    PATHS ${WEBM_DIR}/include
 )
 
 find_library(WEBM_LIBRARY

@@ -1,3 +1,6 @@
 [submodule "Dependencies/openexr"]
 	path = Dependencies/openexr
 	url = git@github.com:AcademySoftwareFoundation/openexr.git
+[submodule "Dependencies/libwebm"]
+	path = Dependencies/libwebm
+	url = https://chromium.googlesource.com/webm/libwebm
