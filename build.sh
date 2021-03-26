@@ -16,11 +16,11 @@ if [ "$(uname)" == "Darwin" ]; then
 fi
 
 echo "************************************"
-echo "Dependencies"
+echo "Build dependencies"
 echo "************************************"
-pushd Dependencies
+pushd External
 ./build.sh
-popd # Dependencies
+popd # External
 
 echo "************************************"
 echo "FrameCapture"

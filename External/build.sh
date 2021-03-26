@@ -13,6 +13,7 @@ if [[ -e ${installdir} ]]; then
 fi
 mkdir -p ${installdir}
 
+
 echo "------------------------------------"
 echo "Build openexr 2.5.5"
 echo "------------------------------------"
@@ -22,8 +23,8 @@ fi
 mkdir -p openexr-build
 pushd openexr-build
 cmake ../openexr/IlmBase -DCMAKE_BUILD_TYPE=Release \
-    -DCMAKE_INSTALL_PREFIX="${installdir}" \
-    -DCMAKE_PREFIX_PATH="${installdir}" \
+    -DCMAKE_INSTALL_PREFIX="${installdir}/openexr" \
+    -DCMAKE_PREFIX_PATH="${installdir}/openexr" \
     -DNAMESPACE_VERSIONING=OFF \
     -DILMBASE_LIB_SUFFIX="" \
     -DBUILD_TESTING=OFF \
@@ -42,8 +43,6 @@ pushd libwebm-build
 
 # Generate project files for platform
 cmake ../libwebm -DCMAKE_BUILD_TYPE=Release \
-    -DCMAKE_INSTALL_PREFIX="${installdir}" \
-    -DCMAKE_PREFIX_PATH="${installdir}" \
     -DBUILD_SHARED_LIBS=ON
 cmake --build . --config Release
 # To probe the file afterwards, use this
@@ -61,4 +60,21 @@ pushd libvpx-build
 
 ../libvpx/configure --disable-examples --disable-tools --disable-docs --enable-vp8 --enable-vp9
 make
+make install
+popd
+
+echo "------------------------------------"
+echo "Build libvorbis 1.3.7"
+echo "------------------------------------"
+if [[ -e libvorbis-build ]]; then
+    rm -rf libvorbis-build
+fi
+mkdir -p libvorbis-build
+pushd libvorbis-build
+
+cmake ../libvorbis -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_INSTALL_PREFIX="${installdir}/libvorbis" \
+    -DCMAKE_PREFIX_PATH="${installdir}/libvorbis" \
+    -DBUILD_SHARED_LIBS=OFF
+cmake --build . --target install --config Release
 popd

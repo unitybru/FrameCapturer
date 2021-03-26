@@ -1,8 +1,8 @@
 set(LIBRARY_PATHS
     # path for include files
-    ../Dependencies/libvpx
+    ../External/libvpx
     # path for compiled library
-    ../Dependencies/libvpx-build
+    ../External/libvpx-build
 )
 
 find_path(VPX_INCLUDE_DIR

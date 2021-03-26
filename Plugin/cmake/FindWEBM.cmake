@@ -1,8 +1,8 @@
 set(CMAKE_PREFIX_PATH
     # path for include files
-    ../Dependencies/libwebm
+    ../External/libwebm
     # path for compiled library
-    ../Dependencies/libwebm-build
+    ../External/libwebm-build
 )
 
 find_path(WEBM_INCLUDE_DIR

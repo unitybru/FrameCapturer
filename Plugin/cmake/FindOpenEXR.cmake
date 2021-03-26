@@ -24,12 +24,12 @@
 
 set(CMAKE_PREFIX_PATH
     # path for compiled OpenEXR files
-    ../Dependencies/install
+    ../External/install/openexr
 )
 
 set(CMAKE_LIBRARY_PATH
     # path for compiled OpenEXR files
-    ../Dependencies/install
+    ../External/install/openexr
 )
 
 if (APPLE)

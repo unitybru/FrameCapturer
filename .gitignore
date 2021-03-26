@@ -26,7 +26,6 @@
 _out/
 _tmp/
 _build_*/
-external/
 Library/
 Temp/
 
@@ -35,6 +34,6 @@ FrameCapturer/*.sln
 FrameRecorder/
 FrameRecorder.meta
 
-Dependencies/*-build/
-Dependencies/install/
 build/
+External/*-build/
+External/install/

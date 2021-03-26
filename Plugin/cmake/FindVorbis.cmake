@@ -1,12 +1,13 @@
-set(LIBRARY_PATHS
-    /usr/lib
-    /usr/local/lib
-    ${VORBIS_DIR}/lib
+set(CMAKE_PREFIX_PATH
+    # path for compiled OpenEXR files
+    ../External/install/libvorbis
 )
 
 find_path(VORBIS_INCLUDE_DIR
     vorbis/codec.h
-    PATHS ${VORBIS_DIR}/include
+    PATH_SUFFIXES
+        include/
+    NO_CMAKE_SYSTEM_PATH
 )
 foreach(VORBIS_LIB
     vorbis
@@ -15,7 +16,9 @@ foreach(VORBIS_LIB
     )
     find_library(${VORBIS_LIB}_LIBRARY
         ${VORBIS_LIB}
-        PATHS ${LIBRARY_PATHS}
+        PATH_SUFFIXES
+            lib/
+        NO_CMAKE_SYSTEM_PATH
     )
     mark_as_advanced(${VORBIS_LIB}_LIBRARY)
     if(${VORBIS_LIB}_LIBRARY)
@@ -27,6 +30,6 @@ mark_as_advanced(VORBIS_INCLUDE_DIR)
 
 find_package_handle_standard_args("VORBIS"
     DEFAULT_MSG
-    VORBIS_LIBRARY
+    vorbis_LIBRARY
     VORBIS_INCLUDE_DIR
 )

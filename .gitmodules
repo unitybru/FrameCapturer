@@ -1,9 +1,12 @@
 [submodule "Dependencies/openexr"]
-	path = Dependencies/openexr
+	path = External/openexr
 	url = git@github.com:AcademySoftwareFoundation/openexr.git
 [submodule "Dependencies/libwebm"]
-	path = Dependencies/libwebm
+	path = External/libwebm
 	url = https://chromium.googlesource.com/webm/libwebm
 [submodule "Dependencies/libvpx"]
-	path = Dependencies/libvpx
+	path = External/libvpx
 	url = git@github.com:webmproject/libvpx.git
+[submodule "Dependencies/libvorbis"]
+	path = External/libvorbis
+	url = git@github.com:xiph/vorbis.git
