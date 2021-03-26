@@ -8,11 +8,6 @@ echo "++++++++++++++++++++++++++++++++++++"
 installdir=$(pwd)/install
 tgzdir=$(pwd)
 
-
-
-if false; then
-
-
 if [[ -e ${installdir} ]]; then
     rm -rf ${installdir}
 fi
@@ -115,12 +110,6 @@ cmake ../libflac -DCMAKE_BUILD_TYPE=Release \
 cmake --build . --target install --config Release
 popd
 
-fi
-
-
-
-
-
 echo "------------------------------------"
 echo "Build libogg 1.3.4"
 echo "------------------------------------"
@@ -136,3 +125,20 @@ cmake ../libogg -DCMAKE_BUILD_TYPE=Release \
     -DBUILD_SHARED_LIBS=OFF
 cmake --build . --target install --config Release
 popd
+
+echo "------------------------------------"
+echo "Build libpng 1.6.37"
+echo "------------------------------------"
+if [[ -e libpng-build ]]; then
+    rm -rf libpng-build
+fi
+mkdir -p libpng-build
+pushd libpng-build
+
+cmake ../libpng -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_INSTALL_PREFIX="${installdir}/libpng" \
+    -DCMAKE_PREFIX_PATH="${installdir}/libpng" \
+    -DBUILD_SHARED_LIBS=OFF
+cmake --build . --target install --config Release
+popd
+

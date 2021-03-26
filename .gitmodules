@@ -19,3 +19,6 @@
 [submodule "External/libogg"]
 	path = External/libogg
 	url = git@github.com:xiph/ogg.git
+[submodule "External/libpng"]
+	path = External/libpng
+	url = git@github.com:glennrp/libpng.git
