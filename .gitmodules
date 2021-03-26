@@ -25,3 +25,6 @@
 [submodule "External/zlib"]
 	path = External/zlib
 	url = git@github.com:madler/zlib.git
+[submodule "External/libyuv"]
+	path = External/libyuv
+	url = git@github.com:lemenkov/libyuv.git

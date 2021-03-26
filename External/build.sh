@@ -157,3 +157,19 @@ cmake ../zlib -DCMAKE_BUILD_TYPE=Release \
     -DBUILD_SHARED_LIBS=OFF
 cmake --build . --target install --config Release
 popd
+
+echo "-----------------------------------------------------"
+echo "Build libyuv with no jpeg on custom fork"
+echo "-----------------------------------------------------"
+if [[ -e libyuv-build ]]; then
+    rm -rf libyuv-build
+fi
+mkdir -p libyuv-build
+pushd libyuv-build
+cmake ../libyuv -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_INSTALL_PREFIX="${installdir}/libyuv" \
+    -DCMAKE_PREFIX_PATH="${installdir}/libyuv" \
+    -DBUILD_SHARED_LIBS=OFF
+cmake --build . --target install --config Release
+popd
+
