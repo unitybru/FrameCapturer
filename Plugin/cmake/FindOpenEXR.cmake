@@ -22,9 +22,19 @@
 # language governing permissions and limitations under the Apache License.
 #
 
+set(CMAKE_PREFIX_PATH
+    # path for compiled OpenEXR files
+    ../Dependencies/install
+)
+
+set(CMAKE_LIBRARY_PATH
+    # path for compiled OpenEXR files
+    ../Dependencies/install
+)
+
 if (APPLE)
     find_path(OPENEXR_LIBRARY_DIR
-            libHalf.dylib
+            libHalf.a
         HINTS
             "${OPENEXR_LOCATION}"
             "$ENV{OPENEXR_LOCATION}"
@@ -82,7 +92,6 @@ if(OPENEXR_INCLUDE_DIR AND EXISTS "${OPENEXR_INCLUDE_DIR}/OpenEXR/OpenEXRConfig.
   mark_as_advanced(OPENEXR_INCLUDE_DIR)
 endif()
 
-
 foreach(OPENEXR_LIB
     Half
     Iex
@@ -102,6 +111,7 @@ foreach(OPENEXR_LIB
             lib/
         DOC
             "OPENEXR's ${OPENEXR_LIB} library path"
+        NO_CMAKE_SYSTEM_PATH
     )
     mark_as_advanced(OPENEXR_${OPENEXR_LIB}_LIBRARY)
 

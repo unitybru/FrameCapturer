@@ -25,7 +25,9 @@ cmake ../openexr/IlmBase -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_INSTALL_PREFIX="${installdir}" \
     -DCMAKE_PREFIX_PATH="${installdir}" \
     -DNAMESPACE_VERSIONING=OFF \
-    -DBUILD_SHARED_LIBS=ON
+    -DILMBASE_LIB_SUFFIX="" \
+    -DBUILD_TESTING=OFF \
+    -DBUILD_SHARED_LIBS=OFF
 cmake --build . --target install --config Release
 popd
 
@@ -46,7 +48,7 @@ cmake ../libwebm -DCMAKE_BUILD_TYPE=Release \
 cmake --build . --config Release
 # To probe the file afterwards, use this
 #xcrun -sdk iphoneos lipo -info libwebm.a
-
+popd
 
 echo "------------------------------------"
 echo "Build libvpx 1.9.0"
@@ -58,6 +60,5 @@ mkdir -p libvpx-build
 pushd libvpx-build
 
 ../libvpx/configure --disable-examples --disable-tools --disable-docs --enable-vp8 --enable-vp9
-make -j$(nproc)
-
+make
 popd
