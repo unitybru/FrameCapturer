@@ -13,3 +13,6 @@
 [submodule "External/libopus"]
 	path = External/libopus
 	url = git@github.com:xiph/opus.git
+[submodule "External/libflac"]
+	path = External/libflac
+	url = git@github.com:xiph/flac.git

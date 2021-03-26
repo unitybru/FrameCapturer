@@ -1,17 +1,19 @@
-set(LIBRARY_PATHS
-    /usr/lib
-    /usr/local/lib
-    ${FLAC_DIR}/lib
+set(CMAKE_PREFIX_PATH
+    ../External/install/libflac
 )
 
 find_path(FLAC_INCLUDE_DIR
     FLAC/all.h
-    PATHS ${FLAC_DIR}/include
+    PATH_SUFFIXES
+        include/
+    NO_CMAKE_SYSTEM_PATH
 )
 
 find_library(FLAC_LIBRARY
     NAMES FLAC
-    PATHS ${LIBRARY_PATHS}
+    PATH_SUFFIXES
+        lib/
+    NO_CMAKE_SYSTEM_PATH
 )
 
 mark_as_advanced(FLAC_INCLUDE_DIR)

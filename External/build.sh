@@ -93,3 +93,19 @@ cmake ../libopus -DCMAKE_BUILD_TYPE=Release \
     -DBUILD_SHARED_LIBS=OFF
 cmake --build . --target install --config Release
 popd
+
+echo "------------------------------------"
+echo "Build libflac 1.3.3"
+echo "------------------------------------"
+if [[ -e libflac-build ]]; then
+    rm -rf libflac-build
+fi
+mkdir -p libflac-build
+pushd libflac-build
+
+cmake ../libflac -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_INSTALL_PREFIX="${installdir}/libflac" \
+    -DCMAKE_PREFIX_PATH="${installdir}/libflac" \
+    -DBUILD_SHARED_LIBS=OFF
+cmake --build . --target install --config Release
+popd
