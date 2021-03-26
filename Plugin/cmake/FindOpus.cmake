@@ -1,17 +1,19 @@
-set(LIBRARY_PATHS
-    /usr/lib
-    /usr/local/lib
-    ${OPUS_DIR}/lib
+set(CMAKE_PREFIX_PATH
+    ../External/install/libopus
 )
 
 find_path(OPUS_INCLUDE_DIR
     opus/opus.h
-    PATHS ${OPUS_DIR}/include
+    PATH_SUFFIXES
+        include/
+    NO_CMAKE_SYSTEM_PATH
 )
 
 find_library(OPUS_LIBRARY
     NAMES opus
-    PATHS ${LIBRARY_PATHS}
+    PATH_SUFFIXES
+        lib/
+    NO_CMAKE_SYSTEM_PATH
 )
 
 mark_as_advanced(OPUS_INCLUDE_DIR)

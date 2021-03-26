@@ -10,3 +10,6 @@
 [submodule "Dependencies/libvorbis"]
 	path = External/libvorbis
 	url = git@github.com:xiph/vorbis.git
+[submodule "External/libopus"]
+	path = External/libopus
+	url = git@github.com:xiph/opus.git

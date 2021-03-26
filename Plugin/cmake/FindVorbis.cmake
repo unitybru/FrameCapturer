@@ -1,5 +1,4 @@
 set(CMAKE_PREFIX_PATH
-    # path for compiled OpenEXR files
     ../External/install/libvorbis
 )
 
