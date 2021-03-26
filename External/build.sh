@@ -8,6 +8,11 @@ echo "++++++++++++++++++++++++++++++++++++"
 installdir=$(pwd)/install
 tgzdir=$(pwd)
 
+
+
+if false; then
+
+
 if [[ -e ${installdir} ]]; then
     rm -rf ${installdir}
 fi
@@ -106,6 +111,28 @@ pushd libflac-build
 cmake ../libflac -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_INSTALL_PREFIX="${installdir}/libflac" \
     -DCMAKE_PREFIX_PATH="${installdir}/libflac" \
+    -DBUILD_SHARED_LIBS=OFF
+cmake --build . --target install --config Release
+popd
+
+fi
+
+
+
+
+
+echo "------------------------------------"
+echo "Build libogg 1.3.4"
+echo "------------------------------------"
+if [[ -e libogg-build ]]; then
+    rm -rf libogg-build
+fi
+mkdir -p libogg-build
+pushd libogg-build
+
+cmake ../libogg -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_INSTALL_PREFIX="${installdir}/libogg" \
+    -DCMAKE_PREFIX_PATH="${installdir}/libogg" \
     -DBUILD_SHARED_LIBS=OFF
 cmake --build . --target install --config Release
 popd

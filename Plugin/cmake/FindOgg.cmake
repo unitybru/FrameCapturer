@@ -1,17 +1,19 @@
-set(LIBRARY_PATHS
-    /usr/lib
-    /usr/local/lib
-    ${OGG_DIR}/lib
+set(CMAKE_PREFIX_PATH
+    ../External/install/libogg
 )
 
 find_path(OGG_INCLUDE_DIR
     ogg/ogg.h
-    PATHS ${OGG_DIR}/include
+    PATH_SUFFIXES
+        include/
+    NO_CMAKE_SYSTEM_PATH
 )
 
 find_library(OGG_LIBRARY
     NAMES ogg
-    PATHS ${LIBRARY_PATHS}
+    PATH_SUFFIXES
+        lib/
+    NO_CMAKE_SYSTEM_PATH
 )
 
 mark_as_advanced(OGG_INCLUDE_DIR)
