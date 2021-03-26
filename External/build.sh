@@ -142,3 +142,18 @@ cmake ../libpng -DCMAKE_BUILD_TYPE=Release \
 cmake --build . --target install --config Release
 popd
 
+echo "------------------------------------"
+echo "Build zlib 1.2.11"
+echo "------------------------------------"
+if [[ -e zlib-build ]]; then
+    rm -rf zlib-build
+fi
+mkdir -p zlib-build
+pushd zlib-build
+
+cmake ../zlib -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_INSTALL_PREFIX="${installdir}/zlib" \
+    -DCMAKE_PREFIX_PATH="${installdir}/zlib" \
+    -DBUILD_SHARED_LIBS=OFF
+cmake --build . --target install --config Release
+popd

@@ -22,3 +22,6 @@
 [submodule "External/libpng"]
 	path = External/libpng
 	url = git@github.com:glennrp/libpng.git
+[submodule "External/zlib"]
+	path = External/zlib
+	url = git@github.com:madler/zlib.git
